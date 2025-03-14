@@ -7,15 +7,17 @@
             <div class="card-header bg-primary text-white">
               <h4><i class="fas fa-user-plus"></i> Register</h4>
             </div>
-            <div class="card-body">
-              <form action="{% url 'index' %}">
+            <div class="card-body" >
+            <!-- add alerts -->
+            {% include 'partials/_alert.html' %}
+              <form action="{% url 'register' %}" method="POST">
+              {% csrf_token %}
                 <div class="form-group">
                   <label for="first_name">First Name</label>
                   <input
                     type="text"
                     name="first_name"
                     class="form-control"
-                    required
                   />
                 </div>
                 <div class="form-group">
@@ -24,7 +26,6 @@
                     type="text"
                     name="last_name"
                     class="form-control"
-                    required
                   />
                 </div>
                 <div class="form-group">
@@ -33,7 +34,6 @@
                     type="text"
                     name="username"
                     class="form-control"
-                    required
                   />
                 </div>
                 <div class="form-group">
@@ -42,25 +42,22 @@
                     type="email"
                     name="email"
                     class="form-control"
-                    required
                   />
                 </div>
                 <div class="form-group">
-                  <label for="password2">Password</label>
+                  <label for="password">Password</label>
                   <input
                     type="password"
                     name="password"
                     class="form-control"
-                    required
                   />
                 </div>
                 <div class="form-group">
-                  <label for="password">Confirm Password</label>
+                  <label for="password2">Confirm Password</label>
                   <input
                     type="password"
                     name="password2"
                     class="form-control"
-                    required
                   />
                 </div>
                 <input
