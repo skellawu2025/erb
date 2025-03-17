@@ -11,8 +11,9 @@ def contact(request):
         email = request.POST['email']
         phone = request.POST['phone']
         message = request.POST['message']
+        user_id = request.POST['user_id']
         if request.user.is_authenticated:
-            user_id = request.user.id
+            # user_id = request.user.id
             has_contacted = Contact.objects.all().filter(listing_id=listing_id, user_id=user_id)
             if has_contacted:
                 messages.error(request, 'You have already made an inquiry for this listing')
