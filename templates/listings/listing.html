@@ -213,11 +213,12 @@
               {% csrf_token %}
               <!-- check user id-->
               {% if user.is_authenticated %}
-              <input type="hidden" name="user_id" value="{{ user.id }}"/>
+              <input type="hidden" name="user_id" value="{{user.id}}"/>
               {% else %}
               <input type="hidden" name="user_id" value="0"/>
               {% endif %}
-               <input type="hidden" name="listing_id" value="{{listing.id}}"/>
+              <input type="hidden" name="listing_id" value="{{listing.id}}"/>
+              <input type="hidden" name="realtor_email" value="{{listing.realtor.email}}"/>
               <div class="form-group">
                 <label for="property_name" class="col-form-label"
                   >Property:</label
